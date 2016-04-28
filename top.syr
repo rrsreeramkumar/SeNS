@@ -1,0 +1,1791 @@
+Release 13.2 - xst O.61xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../HDL/PIC.v" in library work
+Compiling verilog file "../../HDL/kcpsm3.v" in library work
+Module <PIC> compiled
+Compiling verilog file "../../HDL/async_receiver.v" in library work
+Module <kcpsm3> compiled
+Compiling verilog file "../../Assembly/MOTEPGMB.V" in library work
+Module <async_receiver> compiled
+Compiling verilog file "../../Assembly/MOTEPGMA.V" in library work
+Module <motepgmb> compiled
+Compiling verilog file "../../HDL/mote_debug.v" in library work
+Module <motepgma> compiled
+Compiling verilog file "../../HDL/mote.v" in library work
+Module <Mote_debug> compiled
+Compiling verilog file "../../HDL/async_transmitter.v" in library work
+Module <Mote> compiled
+Compiling verilog file "../../HDL/top.v" in library work
+Module <async_transmitter> compiled
+Module <top> compiled
+No errors in compilation
+Analysis of file <"top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <top> in library <work>.
+
+Analyzing hierarchy for module <Mote> in library <work> with parameters.
+	DEBUG = "00000000000000000000000000000000"
+	MAX_BUFFER_SIZE = "00001111"
+	PA_BUFFER_INSERT = "00000011"
+	PA_DONE_BUFFERING = "00000100"
+	PA_INTERRUPT_TYPE = "00000000"
+	PA_TIMESTAMP = "00000010"
+	PA_UART_DATA_RX = "00000001"
+
+Analyzing hierarchy for module <Mote_debug> in library <work> with parameters.
+	COUNTER_SIZE = "00000000000000000000000000010110"
+	DEBUG = "00000000000000000000000000000000"
+	MAX_BUFFER_SIZE = "00001111"
+	PA_BUFFER_INSERT = "00000011"
+	PA_DONE_BUFFERING = "00000100"
+	PA_INTERRUPT_TYPE = "00000000"
+	PA_TIMESTAMP = "00000010"
+	PA_UART_DATA_RX = "00000001"
+
+Analyzing hierarchy for module <async_transmitter> in library <work> with parameters.
+	Baud = "00000000000000011100001000000000"
+	BaudGeneratorAccWidth = "00000000000000000000000000010010"
+	ClkFrequency = "00000010111110101111000010000000"
+	RegisterInputData = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <kcpsm3> in library <work>.
+
+Analyzing hierarchy for module <motepgma> in library <work>.
+
+Analyzing hierarchy for module <async_receiver> in library <work> with parameters.
+	Baud = "00000000000000011100001000000000"
+	Baud8 = "00000000000011100001000000000000"
+	Baud8GeneratorAccWidth = "00000000000000000000000000010010"
+	ClkFrequency = "00000010111110101111000010000000"
+
+Analyzing hierarchy for module <PIC> in library <work> with parameters.
+	Interrupt_Asserted = "1"
+	Interrupt_Type_1 = "00000000"
+	Interrupt_Type_2 = "00000001"
+
+Analyzing hierarchy for module <motepgmb> in library <work>.
+
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 402: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2268: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 564: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 595: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 718: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 726: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1285: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 493: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 535: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 637: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 709: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 785: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 794: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 833: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 842: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 881: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 890: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 929: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 938: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 977: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 986: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1025: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1034: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1073: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1082: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1121: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1130: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1169: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1178: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1217: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1226: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1313: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1340: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1367: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1394: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1421: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1448: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1475: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1502: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1877: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1886: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1903: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1919: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1934: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1949: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1964: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1979: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1994: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2009: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2024: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2049: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2060: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2086: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2112: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2138: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2164: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2190: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2216: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2242: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2280: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2324: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2333: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2348: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2357: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2372: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2381: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2396: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2405: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2420: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2429: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2444: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2453: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2468: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2477: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2492: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2501: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 444: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 483: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 515: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 525: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 544: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 554: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 580: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 605: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 615: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 666: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 676: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 699: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1270: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1525: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1540: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1722: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1734: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1750: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1766: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1782: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1798: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1814: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1830: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1846: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2307: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2522: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2532: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2548: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2779: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2807: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2835: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2863: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2891: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1295: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1322: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1349: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1376: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1403: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1430: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1457: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1484: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2581: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2600: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2619: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2638: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2657: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2676: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2695: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2714: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2733: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 2752: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1552: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1572: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1592: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1612: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1632: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1652: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1672: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../HDL/kcpsm3.v" line 1692: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_00> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_01> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_02> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_03> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_04> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_05> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_06> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INITP_07> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_00> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_01> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_02> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_03> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_04> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_05> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_06> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_07> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_08> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_09> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_0F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_10> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_11> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_12> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_13> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_14> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_15> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_16> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_17> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_18> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_19> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_1F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_20> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_21> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_22> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_23> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_24> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_25> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_26> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_27> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_28> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_29> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_2F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_30> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_31> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_32> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_33> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_34> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_35> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_36> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_37> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_38> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_39> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMA.V" line 30: attribute on instance <INIT_3F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_00> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_01> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_02> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_03> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_04> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_05> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_06> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INITP_07> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_00> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_01> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_02> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_03> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_04> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_05> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_06> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_07> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_08> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_09> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_0F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_10> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_11> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_12> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_13> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_14> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_15> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_16> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_17> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_18> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_19> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_1F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_20> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_21> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_22> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_23> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_24> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_25> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_26> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_27> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_28> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_29> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_2F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_30> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_31> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_32> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_33> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_34> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_35> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_36> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_37> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_38> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_39> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3A> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3B> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3C> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3D> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3E> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "../../Assembly/MOTEPGMB.V" line 30: attribute on instance <INIT_3F> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top>.
+Module <top> is correct for synthesis.
+ 
+Analyzing module <Mote> in library <work>.
+	DEBUG = 32'sb00000000000000000000000000000000
+	MAX_BUFFER_SIZE = 8'b00001111
+	PA_BUFFER_INSERT = 8'b00000011
+	PA_DONE_BUFFERING = 8'b00000100
+	PA_INTERRUPT_TYPE = 8'b00000000
+	PA_TIMESTAMP = 8'b00000010
+	PA_UART_DATA_RX = 8'b00000001
+Module <Mote> is correct for synthesis.
+ 
+Analyzing module <kcpsm3> in library <work>.
+Module <kcpsm3> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  1" for instance <t_state_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <t_state_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <toggle_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  1" for instance <reset_flop1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  1" for instance <reset_flop2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <int_capture_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0080" for instance <int_pulse_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <int_pulse_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <int_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <ack_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shadow_carry_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shadow_zero_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  EAAA" for instance <int_update_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <int_update_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  04" for instance <int_value_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <int_value_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <int_enable_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  7400" for instance <move_group_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <move_group_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  5A3C" for instance <condition_met_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <condition_met_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  2F" for instance <normal_count_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <normal_count_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  1000" for instance <call_type_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <call_type_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  5400" for instance <push_pop_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <push_pop_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  D" for instance <valid_move_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <valid_move_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  41FC" for instance <flag_type_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <flag_type_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <flag_write_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  8" for instance <flag_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <flag_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0001" for instance <low_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <low_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0001" for instance <high_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <high_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  3F" for instance <sel_shadow_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_shadow_zero_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <zero_flag_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6996" for instance <low_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <low_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6996" for instance <high_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <high_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  F3FF" for instance <sel_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_parity_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  F3" for instance <sel_arith_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_arith_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  C" for instance <sel_shift_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_shift_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  3" for instance <sel_shadow_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_shadow_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <carry_flag_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_8> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_8> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_8> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_8> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_8> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <vector_select_mux_9> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <vector_select_mux_9> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <value_select_mux_9> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <value_select_mux_9> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pc_loop_register_bit_9> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0145" for instance <register_type_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <register_type_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <register_write_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  8" for instance <register_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <register_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000" for instance <reg_loop_register_bit_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <reg_loop_register_bit_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <operand_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <operand_select_mux_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0400" for instance <memory_type_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_type_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <memory_write_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  8000" for instance <memory_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_enable_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0000000000000000" for instance <memory_bit_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <memory_bit_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <store_flop_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FFE2" for instance <sel_logical_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_logical_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6E8A" for instance <logical_lut_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <logical_lut_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <logical_flop_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <high_shift_in_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <high_shift_in_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <low_shift_in_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <low_shift_in_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_carry_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <pipeline_bit> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <shift_mux_lut_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <shift_mux_lut_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <shift_flop_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  1F" for instance <sel_arith_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <sel_arith_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6C" for instance <arith_carry_in_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_carry_in_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  2" for instance <arith_carry_out_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_carry_out_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  96" for instance <arith_lut_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <arith_lut_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_flop_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <arith_carry_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0002" for instance <input_fetch_type_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <input_fetch_type_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <sel_group_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  FE" for instance <or_lut_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <or_lut_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  E4" for instance <mux_lut_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <mux_lut_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0010" for instance <io_decode_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <io_decode_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  4000" for instance <write_active_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <write_active_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <write_strobe_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0100" for instance <read_active_lut> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <read_active_lut> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <read_strobe_flop> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_5> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_5> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_6> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_6> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_7> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_7> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_8> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_8> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_8> in unit <kcpsm3>.
+    Set user-defined property "INIT =  00000000" for instance <stack_bit_9> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <stack_bit_9> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_flop_9> in unit <kcpsm3>.
+    Set user-defined property "INIT =  6555" for instance <count_lut_0> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <count_lut_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_count_loop_register_bit_0> in unit <kcpsm3>.
+    Set user-defined property "INIT =  A999" for instance <count_lut_1> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <count_lut_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_count_loop_register_bit_1> in unit <kcpsm3>.
+    Set user-defined property "INIT =  A999" for instance <count_lut_2> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <count_lut_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_count_loop_register_bit_2> in unit <kcpsm3>.
+    Set user-defined property "INIT =  A999" for instance <count_lut_3> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <count_lut_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_count_loop_register_bit_3> in unit <kcpsm3>.
+    Set user-defined property "INIT =  A999" for instance <count_lut_4> in unit <kcpsm3>.
+    Set user-defined property "XC_PROPS =  INIT" for instance <count_lut_4> in unit <kcpsm3>.
+    Set user-defined property "INIT =  0" for instance <stack_count_loop_register_bit_4> in unit <kcpsm3>.
+Analyzing module <motepgma> in library <work>.
+Module <motepgma> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  00000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_00 =  00000000000000000000000000000000000000000000000000E436483D463D3C" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_01 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INITP_07 =  C000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_00 =  0000401B500F4105C10011F08F01F0F04001401B5007400040004002C0010F00" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_01 =  00000000000000008001C004800100050F00541250F0C10380017100C1030100" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_07 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_08 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_09 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_0F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_10 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_11 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_12 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_13 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_14 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_15 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_16 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_17 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_18 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_19 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_1F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_20 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_21 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_22 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_23 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_24 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_25 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_26 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_27 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_28 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_29 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_2F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_30 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_31 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_32 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_33 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_34 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_35 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_36 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_37 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_38 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_39 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "INIT_3F =  4003000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "SRVAL =  00000" for instance <ram_1024_x_18> in unit <motepgma>.
+    Set user-defined property "WRITE_MODE =  WRITE_FIRST" for instance <ram_1024_x_18> in unit <motepgma>.
+Analyzing module <async_receiver> in library <work>.
+	Baud = 32'sb00000000000000011100001000000000
+	Baud8 = 32'sb00000000000011100001000000000000
+	Baud8GeneratorAccWidth = 32'sb00000000000000000000000000010010
+	ClkFrequency = 32'sb00000010111110101111000010000000
+Module <async_receiver> is correct for synthesis.
+ 
+Analyzing module <PIC> in library <work>.
+	Interrupt_Asserted = 1'b1
+	Interrupt_Type_1 = 8'b00000000
+	Interrupt_Type_2 = 8'b00000001
+Module <PIC> is correct for synthesis.
+ 
+Analyzing module <Mote_debug> in library <work>.
+	COUNTER_SIZE = 32'sb00000000000000000000000000010110
+	DEBUG = 32'sb00000000000000000000000000000000
+	MAX_BUFFER_SIZE = 8'b00001111
+	PA_BUFFER_INSERT = 8'b00000011
+	PA_DONE_BUFFERING = 8'b00000100
+	PA_INTERRUPT_TYPE = 8'b00000000
+	PA_TIMESTAMP = 8'b00000010
+	PA_UART_DATA_RX = 8'b00000001
+Module <Mote_debug> is correct for synthesis.
+ 
+Analyzing module <motepgmb> in library <work>.
+Module <motepgmb> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  00000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_00 =  00000000000000000000000000000000000000000000000000E436483D463D3C" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_01 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INITP_07 =  C000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_00 =  0000401B500F4105C10011F08F01F0F04001401B5007400040004002C0010F00" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_01 =  00000000000000008001C004800100050F00541250F0C10380017100C1030101" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_02 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_03 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_04 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_05 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_06 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_07 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_08 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_09 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_0F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_10 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_11 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_12 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_13 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_14 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_15 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_16 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_17 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_18 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_19 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_1F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_20 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_21 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_22 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_23 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_24 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_25 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_26 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_27 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_28 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_29 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_2F =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_30 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_31 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_32 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_33 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_34 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_35 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_36 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_37 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_38 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_39 =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3A =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3B =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3C =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3D =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3E =  0000000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "INIT_3F =  4003000000000000000000000000000000000000000000000000000000000000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "SRVAL =  00000" for instance <ram_1024_x_18> in unit <motepgmb>.
+    Set user-defined property "WRITE_MODE =  WRITE_FIRST" for instance <ram_1024_x_18> in unit <motepgmb>.
+Analyzing module <async_transmitter> in library <work>.
+	Baud = 32'sb00000000000000011100001000000000
+	BaudGeneratorAccWidth = 32'sb00000000000000000000000000010010
+	ClkFrequency = 32'sb00000010111110101111000010000000
+	RegisterInputData = 32'sb00000000000000000000000000000001
+Module <async_transmitter> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <ready_to_tx> in unit <Mote> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <ready_to_tx> in unit <Mote_debug> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <async_transmitter>.
+    Related source file is "../../HDL/async_transmitter.v".
+    Found 1-bit register for signal <TxD>.
+    Found 19-bit register for signal <BaudGeneratorAcc>.
+    Found 19-bit adder for signal <BaudGeneratorAcc$add0000> created at line 26.
+    Found 1-bit 8-to-1 multiplexer for signal <muxbit>.
+    Found 4-bit register for signal <state>.
+    Found 4-bit comparator less for signal <TxD$cmp_lt0000> created at line 71.
+    Found 8-bit register for signal <TxD_dataReg>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <async_transmitter> synthesized.
+
+
+Synthesizing Unit <async_receiver>.
+    Related source file is "../../HDL/async_receiver.v".
+WARNING:Xst:646 - Signal <RxD_data_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <RxD_data>.
+    Found 1-bit register for signal <RxD_endofpacket>.
+    Found 1-bit register for signal <RxD_data_ready>.
+    Found 3-bit adder carry out for signal <add0000$addsub0000> created at line 59.
+    Found 19-bit register for signal <Baud8GeneratorAcc>.
+    Found 19-bit adder for signal <Baud8GeneratorAcc$add0000> created at line 23.
+    Found 4-bit register for signal <bit_spacing>.
+    Found 5-bit up counter for signal <gap_count>.
+    Found 1-bit register for signal <RxD_bit_inv>.
+    Found 1-bit 4-to-1 multiplexer for signal <RxD_bit_inv$mux0000>.
+    Found 2-bit updown counter for signal <RxD_cnt_inv>.
+    Found 2-bit register for signal <RxD_sync_inv>.
+    Found 4-bit register for signal <state>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  40 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
+Unit <async_receiver> synthesized.
+
+
+Synthesizing Unit <PIC>.
+    Related source file is "../../HDL/PIC.v".
+    Found 1-bit register for signal <interrupt>.
+    Found 8-bit register for signal <interrupt_type>.
+    Summary:
+	inferred   9 D-type flip-flop(s).
+Unit <PIC> synthesized.
+
+
+Synthesizing Unit <kcpsm3>.
+    Related source file is "../../HDL/kcpsm3.v".
+Unit <kcpsm3> synthesized.
+
+
+Synthesizing Unit <motepgma>.
+    Related source file is "../../Assembly/MOTEPGMA.V".
+Unit <motepgma> synthesized.
+
+
+Synthesizing Unit <motepgmb>.
+    Related source file is "../../Assembly/MOTEPGMB.V".
+Unit <motepgmb> synthesized.
+
+
+Synthesizing Unit <Mote>.
+    Related source file is "../../HDL/mote.v".
+WARNING:Xst:1305 - Output <rs232_txd> is never assigned. Tied to value 0.
+WARNING:Xst:647 - Input <timestamp<15:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <upd_sysregs> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ready_to_tx> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <read_strobe> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:737 - Found 8-bit latch for signal <port_in>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit register for signal <txd_start>.
+    Found 8-bit register for signal <mote_out>.
+    Found 1-bit register for signal <bus_request>.
+    Found 8-bit register for signal <led>.
+    Found 120-bit register for signal <buffer>.
+    Found 4-bit register for signal <buffer_pointer>.
+    Found 8-bit comparator equal for signal <buffer_pointer$cmp_eq0000> created at line 166.
+    Found 4-bit adder for signal <buffer_pointer$share0000>.
+    Found 8-bit register for signal <buffer_size>.
+    Found 8-bit comparator not equal for signal <bus_request$cmp_ne0000> created at line 166.
+    Summary:
+	inferred 150 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <Mote> synthesized.
+
+
+Synthesizing Unit <Mote_debug>.
+    Related source file is "../../HDL/mote_debug.v".
+WARNING:Xst:647 - Input <rs232_rxd> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <rs232_txd> is never assigned. Tied to value 0.
+WARNING:Xst:647 - Input <timestamp<15:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <upd_sysregs> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ready_to_tx> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <read_strobe> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <interrupt_type> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <bus_buffer_empty> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:737 - Found 8-bit latch for signal <port_in>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit register for signal <txd_start>.
+    Found 8-bit register for signal <mote_out>.
+    Found 1-bit register for signal <bus_request>.
+    Found 8-bit register for signal <led>.
+    Found 120-bit register for signal <buffer>.
+    Found 4-bit register for signal <buffer_pointer>.
+    Found 8-bit comparator equal for signal <buffer_pointer$cmp_eq0000> created at line 179.
+    Found 4-bit adder for signal <buffer_pointer$share0000>.
+    Found 8-bit register for signal <buffer_size>.
+    Found 8-bit comparator not equal for signal <bus_request$cmp_ne0000> created at line 179.
+    Found 22-bit up counter for signal <fake_counter>.
+    Found 3-bit up counter for signal <fuhg>.
+    Found 1-bit register for signal <uart_data_available>.
+    Found 8-bit register for signal <uart_rx_data>.
+    Found 7-bit adder for signal <uart_rx_data$add0000> created at line 98.
+    Summary:
+	inferred   2 Counter(s).
+	inferred 159 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <Mote_debug> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "../../HDL/top.v".
+WARNING:Xst:1780 - Signal <to_transmit> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <data_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <bus_grant_a>.
+    Found 1-bit register for signal <bus_grant_b>.
+    Found 7-bit adder for signal <old_timestamp_increment_1$add0000> created at line 53.
+    Found 16-bit up counter for signal <timestamp>.
+    Found 7-bit up counter for signal <timestamp_increment>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 19-bit adder                                          : 2
+ 22-bit adder                                          : 1
+ 3-bit adder carry out                                 : 1
+ 4-bit adder                                           : 2
+ 7-bit adder                                           : 2
+# Counters                                             : 6
+ 16-bit up counter                                     : 1
+ 2-bit updown counter                                  : 1
+ 22-bit up counter                                     : 1
+ 3-bit up counter                                      : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 62
+ 1-bit register                                        : 13
+ 19-bit register                                       : 2
+ 2-bit register                                        : 1
+ 4-bit register                                        : 5
+ 8-bit register                                        : 41
+# Latches                                              : 2
+ 8-bit latch                                           : 2
+# Comparators                                          : 5
+ 4-bit comparator less                                 : 1
+ 8-bit comparator equal                                : 2
+ 8-bit comparator not equal                            : 2
+# Multiplexers                                         : 4
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+ 8-bit 15-to-1 multiplexer                             : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <interrupt_type_1> in Unit <pic> is equivalent to the following 6 FFs/Latches, which will be removed : <interrupt_type_2> <interrupt_type_3> <interrupt_type_4> <interrupt_type_5> <interrupt_type_6> <interrupt_type_7> 
+INFO:Xst:2261 - The FF/Latch <led_0> in Unit <mote_a> is equivalent to the following 8 FFs/Latches, which will be removed : <led_1> <led_2> <led_3> <led_4> <led_5> <led_6> <led_7> <bus_request> 
+INFO:Xst:2261 - The FF/Latch <bus_request> in Unit <mote_b> is equivalent to the following 8 FFs/Latches, which will be removed : <led_0> <led_1> <led_2> <led_3> <led_4> <led_5> <led_6> <led_7> 
+WARNING:Xst:1710 - FF/Latch <interrupt_type_0> (without init value) has a constant value of 0 in block <pic>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <uart_rx_data_7> (without init value) has a constant value of 0 in block <mote_b>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <interrupt_type_1> of sequential type is unconnected in block <pic>.
+WARNING:Xst:2404 -  FFs/Latches <interrupt_type<7:1>> (without init value) have a constant value of 0 in block <PIC>.
+WARNING:Xst:2404 -  FFs/Latches <uart_rx_data<7:7>> (without init value) have a constant value of 0 in block <Mote_debug>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 19-bit adder                                          : 2
+ 22-bit adder                                          : 1
+ 3-bit adder carry out                                 : 1
+ 4-bit adder                                           : 2
+ 7-bit adder                                           : 2
+# Counters                                             : 6
+ 16-bit up counter                                     : 1
+ 2-bit updown counter                                  : 1
+ 22-bit up counter                                     : 1
+ 3-bit up counter                                      : 1
+ 5-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 538
+ Flip-Flops                                            : 538
+# Latches                                              : 2
+ 8-bit latch                                           : 2
+# Comparators                                          : 5
+ 4-bit comparator less                                 : 1
+ 8-bit comparator equal                                : 2
+ 8-bit comparator not equal                            : 2
+# Multiplexers                                         : 17
+ 1-bit 15-to-1 multiplexer                             : 16
+ 1-bit 8-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <bus_request> in Unit <Mote> is equivalent to the following 8 FFs/Latches, which will be removed : <led_0> <led_1> <led_2> <led_3> <led_4> <led_5> <led_6> <led_7> 
+INFO:Xst:2261 - The FF/Latch <bus_request> in Unit <Mote_debug> is equivalent to the following 8 FFs/Latches, which will be removed : <led_0> <led_1> <led_2> <led_3> <led_4> <led_5> <led_6> <led_7> 
+WARNING:Xst:1710 - FF/Latch <pic/interrupt_type> (without init value) has a constant value of 0 in block <Mote>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <pic/interrupt_type> of sequential type is unconnected in block <Mote_debug>.
+WARNING:Xst:2677 - Node <BaudGeneratorAcc_0> of sequential type is unconnected in block <async_transmitter>.
+WARNING:Xst:2677 - Node <BaudGeneratorAcc_1> of sequential type is unconnected in block <async_transmitter>.
+WARNING:Xst:2677 - Node <Baud8GeneratorAcc_0> of sequential type is unconnected in block <async_receiver>.
+WARNING:Xst:2677 - Node <Baud8GeneratorAcc_1> of sequential type is unconnected in block <async_receiver>.
+WARNING:Xst:2677 - Node <Baud8GeneratorAcc_2> of sequential type is unconnected in block <async_receiver>.
+WARNING:Xst:2677 - Node <Baud8GeneratorAcc_3> of sequential type is unconnected in block <async_receiver>.
+WARNING:Xst:2677 - Node <Baud8GeneratorAcc_4> of sequential type is unconnected in block <async_receiver>.
+WARNING:Xst:1710 - FF/Latch <uart_rx_data_4> (without init value) has a constant value of 0 in block <Mote_debug>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_rx_data_5> (without init value) has a constant value of 1 in block <Mote_debug>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <uart_rx_data_6> (without init value) has a constant value of 1 in block <Mote_debug>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <async_transmitter> ...
+
+Optimizing unit <async_receiver> ...
+
+Optimizing unit <Mote> ...
+
+Optimizing unit <Mote_debug> ...
+WARNING:Xst:2677 - Node <timestamp_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <timestamp_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/RxD_endofpacket> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/gap_count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/gap_count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/gap_count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/gap_count_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <mote_a/deserializer/gap_count_4> of sequential type is unconnected in block <top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 12.
+INFO:Xst:2260 - The FF/Latch <mote_a/mote_brain/reset_flop1> in Unit <top> is equivalent to the following FF/Latch : <mote_b/mote_brain/reset_flop1> 
+
+Final Macro Processing ...
+
+Processing Unit <top> :
+	Found 2-bit shift register for signal <mote_a/deserializer/RxD_sync_inv_1>.
+Unit <top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 549
+ Flip-Flops                                            : 549
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 14
+
+Cell Usage :
+# BELS                             : 1399
+#      GND                         : 1
+#      INV                         : 29
+#      LUT1                        : 88
+#      LUT2                        : 30
+#      LUT3                        : 282
+#      LUT3_D                      : 2
+#      LUT3_L                      : 2
+#      LUT4                        : 455
+#      LUT4_D                      : 50
+#      MUXCY                       : 162
+#      MUXF5                       : 93
+#      MUXF6                       : 33
+#      MUXF7                       : 16
+#      VCC                         : 1
+#      XORCY                       : 155
+# FlipFlops/Latches                : 566
+#      FD                          : 64
+#      FDC                         : 23
+#      FDCE                        : 11
+#      FDE                         : 335
+#      FDR                         : 68
+#      FDRE                        : 21
+#      FDRS                        : 1
+#      FDRSE                       : 22
+#      FDS                         : 5
+#      LD                          : 16
+# RAMS                             : 54
+#      RAM16X1D                    : 16
+#      RAM32X1S                    : 20
+#      RAM64X1S                    : 16
+#      RAMB16_S18                  : 2
+# Shift Registers                  : 1
+#      SRL16E                      : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 2
+#      OBUF                        : 10
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      588  out of   4656    12%  
+ Number of Slice Flip Flops:            566  out of   9312     6%  
+ Number of 4 input LUTs:               1075  out of   9312    11%  
+    Number used as logic:               938
+    Number used as Shift registers:       1
+    Number used as RAMs:                136
+ Number of IOs:                          14
+ Number of bonded IOBs:                  13  out of    232     5%  
+ Number of BRAMs:                         2  out of     20    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------------+--------------------------+-------+
+Clock Signal                                       | Clock buffer(FF name)    | Load  |
+---------------------------------------------------+--------------------------+-------+
+clk50                                              | BUFGP                    | 605   |
+mote_a/port_in_not0001(mote_a/port_in_not0001_f5:O)| NONE(*)(mote_a/port_in_7)| 8     |
+mote_b/port_in_not0001(mote_b/port_in_not0001_f5:O)| NONE(*)(mote_b/port_in_7)| 8     |
+---------------------------------------------------+--------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rotary_press                       | IBUF                   | 34    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 12.497ns (Maximum Frequency: 80.018MHz)
+   Minimum input arrival time before clock: 7.145ns
+   Maximum output required time after clock: 6.499ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk50'
+  Clock period: 12.497ns (frequency: 80.018MHz)
+  Total number of paths / destination ports: 57435 / 1517
+-------------------------------------------------------------------------
+Delay:               12.497ns (Levels of Logic = 6)
+  Source:            mote_a/mote_pgm1/ram_1024_x_18 (RAM)
+  Destination:       mote_a/buffer_14_7 (FF)
+  Source Clock:      clk50 rising
+  Destination Clock: clk50 rising
+
+  Data Path: mote_a/mote_pgm1/ram_1024_x_18 to mote_a/buffer_14_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S18:CLK->DO6   10   2.800   0.882  mote_a/mote_pgm1/ram_1024_x_18 (mote_a/instruction<6>)
+     RAM16X1D:DPRA2->DPO    1   0.704   0.455  mote_a/mote_brain/reg_loop_register_bit_3 (mote_a/mote_brain/sy<3>)
+     LUT3:I2->O           67   0.704   1.352  mote_a/mote_brain/operand_select_mux_3 (mote_a/port_id<3>)
+     LUT2:I1->O            3   0.704   0.535  mote_a/buffer_size_and00011_SW0 (N41)
+     LUT4_D:I3->O         11   0.704   0.937  mote_a/buffer_size_and00011_1 (mote_a/buffer_size_and00011)
+     LUT4_D:I3->O         14   0.704   1.004  mote_a/buffer_0_mux0000<7>11 (mote_a/N111)
+     LUT4:I3->O            1   0.704   0.000  mote_a/buffer_8_mux0000<7>1 (mote_a/buffer_8_mux0000<7>)
+     FDE:D                     0.308          mote_a/buffer_8_7
+    ----------------------------------------
+    Total                     12.497ns (7.332ns logic, 5.165ns route)
+                                       (58.7% logic, 41.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk50'
+  Total number of paths / destination ports: 289 / 287
+-------------------------------------------------------------------------
+Offset:              7.145ns (Levels of Logic = 4)
+  Source:            rotary_press (PAD)
+  Destination:       mote_a/mote_out_7 (FF)
+  Destination Clock: clk50 rising
+
+  Data Path: rotary_press to mote_a/mote_out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            46   1.218   1.442  rotary_press_IBUF (rotary_press_IBUF)
+     LUT2:I0->O            2   0.704   0.451  mote_b/bus_request_and00001_SW0 (N31)
+     LUT4:I3->O            3   0.704   0.610  mote_b/bus_request_and00001 (mote_b/txd_start_and0000)
+     LUT4:I1->O            8   0.704   0.757  mote_b/mote_out_and00001 (mote_b/mote_out_and0000)
+     FDE:CE                    0.555          mote_b/mote_out_0
+    ----------------------------------------
+    Total                      7.145ns (3.885ns logic, 3.260ns route)
+                                       (54.4% logic, 45.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk50'
+  Total number of paths / destination ports: 33 / 9
+-------------------------------------------------------------------------
+Offset:              6.499ns (Levels of Logic = 2)
+  Source:            bus_grant_a (FF)
+  Destination:       led<7> (PAD)
+  Source Clock:      clk50 rising
+
+  Data Path: bus_grant_a to led<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q            14   0.591   1.175  bus_grant_a (bus_grant_a)
+     LUT4:I0->O            8   0.704   0.757  led<7>1 (led_0_OBUF)
+     OBUF:I->O                 3.272          led_0_OBUF (led<0>)
+    ----------------------------------------
+    Total                      6.499ns (4.567ns logic, 1.932ns route)
+                                       (70.3% logic, 29.7% route)
+
+=========================================================================
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/t_state_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/int_pulse_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/int_update_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/int_value_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/move_group_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/condition_met_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/normal_count_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/call_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/push_pop_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/valid_move_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/flag_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/flag_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/low_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/high_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_shadow_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/low_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/high_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_arith_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_shift_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_shadow_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/vector_select_mux_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/value_select_mux_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/register_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/register_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/reg_loop_register_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/operand_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/memory_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_logical_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/logical_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/high_shift_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/low_shift_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/shift_mux_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/sel_arith_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_carry_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_carry_out_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/arith_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/input_fetch_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/or_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/mux_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/io_decode_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/write_active_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/read_active_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/stack_bit_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/count_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/count_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/count_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/count_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_a/mote_brain/count_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/t_state_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/int_pulse_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/int_update_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/int_value_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/move_group_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/condition_met_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/normal_count_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/call_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/push_pop_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/valid_move_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/flag_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/flag_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/low_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/high_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_shadow_zero_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/low_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/high_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_parity_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_arith_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_shift_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_shadow_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/vector_select_mux_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/value_select_mux_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/register_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/register_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/reg_loop_register_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/operand_select_mux_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_enable_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/memory_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_logical_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/logical_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/high_shift_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/low_shift_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_carry_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/shift_mux_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/sel_arith_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_carry_in_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_carry_out_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/arith_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/input_fetch_type_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/or_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/mux_lut_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/io_decode_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/write_active_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/read_active_lut.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_4.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_5.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_6.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_7.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_8.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/stack_bit_9.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/count_lut_0.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/count_lut_1.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/count_lut_2.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/count_lut_3.
+WARNING:Xst:616 - Invalid property "XC_PROPS INIT": Did not attach to mote_b/mote_brain/count_lut_4.
+
+
+Total REAL time to Xst completion: 18.00 secs
+Total CPU time to Xst completion: 18.18 secs
+ 
+--> 
+
+Total memory usage is 277340 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  600 (   0 filtered)
+Number of infos    :   12 (   0 filtered)
+
